@@ -6,9 +6,9 @@ import FeedbackOptions from './components/FeedbackOptions';
 import Notification from './components/Notification';
 
 function App() {
-  const [Good, setGood] = useState(0);
-  const [Neutral, setNeutral] = useState(0);
-  const [Bad, setBad] = useState(0);
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
 
   const onLeaveFeedback = option => {
     switch (option) {
@@ -29,10 +29,10 @@ function App() {
     }
   };
 
-  const countTotalFeedback = Good + Neutral + Bad;
+  const countTotalFeedback = good + neutral + bad;
 
   const countPositiveFeedbackPercentage = () => {
-    return Math.round((Good / countTotalFeedback) * 100);
+    return Math.round((good / countTotalFeedback) * 100);
   };
 
   return (
@@ -43,9 +43,9 @@ function App() {
       <Section title="Statistics">
         {countTotalFeedback ? (
           <Statistics
-            good={Good}
-            neutral={Neutral}
-            bad={Bad}
+            good={good}
+            neutral={neutral}
+            bad={bad}
             total={countTotalFeedback}
             positivePercentage={countPositiveFeedbackPercentage()}
           />
